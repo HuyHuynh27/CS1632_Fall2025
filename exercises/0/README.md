@@ -18,7 +18,7 @@
 
 DUE: September 1 (Monday), 2025 Before Class
 
-Please accept Exercise 0 on **GitHub Classroom** using the following link: https://classroom.github.com/a/LEMakbnR
+Please accept Exercise 0 on **GitHub Classroom** using the following link: TBD
 
 When you accept the assignment, a new GitHub repository will be automatically
 created for you with which you will do backup, versioning, and even submission.
