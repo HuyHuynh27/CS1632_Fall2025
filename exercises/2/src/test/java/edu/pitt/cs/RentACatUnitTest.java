@@ -130,11 +130,8 @@ public class RentACatUnitTest {
 		m.setAccessible(true);
 
 		Cat car = (Cat) m.invoke(r, 2);
-
 		assertNotNull(car);
-
 		assertEquals(2, car.getId());
-
 	}
 
 	/**
@@ -149,7 +146,6 @@ public class RentACatUnitTest {
 	@Test
 	public void testListCatsNumCats0() {
 		assertEquals("", r.listCats());
-
 	}
 
 	/**
@@ -163,14 +159,10 @@ public class RentACatUnitTest {
 	 * </pre>
 	 */
 	@Test
-	public void testListCatsNumCats3()throws Exception{
+	public void testListCatsNumCats3(){
 		r.addCat(c1);
 		r.addCat(c2);
 		r.addCat(c3);
-
-		when(c1.toString()).thenReturn("ID 1. Jennyanydots");
-		when(c2.toString()).thenReturn("ID 2. Old Deuteronomy");
-		when(c3.toString()).thenReturn("ID 3. Mistoffelees");
 
 		assertEquals("ID 1. Jennyanydots\nID 2. Old Deuteronomy\nID 3. Mistoffelees\n", r.listCats());
 	}
@@ -216,7 +208,14 @@ public class RentACatUnitTest {
 	 */
 	@Test
 	public void testRenameNumCat3() {
-		// TODO: Fill in
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+
+		boolean result = r.renameCat(2, "Garfield");
+
+		assertTrue(result);
+		Mockito.verify(c2, times(1)).renameCat("Garfield");
 	}
 
 	/**
@@ -236,7 +235,15 @@ public class RentACatUnitTest {
 	 */
 	@Test
 	public void testRentCatNumCats3() {
-		// TODO: Fill in
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+
+		boolean result = r.rentCat(2);
+
+		assertTrue(result);
+		Mockito.verify(c2, times(1)).rentCat();
+		assertEquals("Old Deuteronomy has been rented.\n", out.toString());
 	}
 
 	/**
@@ -257,7 +264,17 @@ public class RentACatUnitTest {
 	 */
 	@Test
 	public void testRentCatFailureNumCats3() {
-		// TODO: Fill in
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+
+		when(c2.getRented()).thenReturn(true);
+
+		boolean result = r.rentCat(2);
+
+		assertFalse(result);
+		Mockito.verify(c2, never()).rentCat();
+		assertEquals("Sorry, Old Deuteronomy is not here!\n", out.toString());
 	}
 
 	/**
@@ -278,7 +295,17 @@ public class RentACatUnitTest {
 	 */
 	@Test
 	public void testReturnCatNumCats3() {
-		// TODO: Fill in
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+
+		when(c2.getRented()).thenReturn(true);
+
+		boolean result = r.returnCat(2);
+
+		assertTrue(result);
+		Mockito.verify(c2, times(1)).returnCat();
+		assertEquals("Welcome back, Old Deuteronomy!\n", out.toString());
 	}
 
 	/**
@@ -298,7 +325,17 @@ public class RentACatUnitTest {
 	 */
 	@Test
 	public void testReturnFailureCatNumCats3() {
-		// TODO: Fill in
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+
+		when(c2.getRented()).thenReturn(false);
+
+		boolean result = r.returnCat(2);
+
+		assertFalse(result);
+		Mockito.verify(c2, never()).returnCat();
+		assertEquals("Old Deuteronomy is already here!\n", out.toString());
 	}
 
 }
