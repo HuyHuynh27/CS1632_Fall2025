@@ -1,0 +1,281 @@
+{
+  "id": "50be6e74-c9ea-4a58-bbf7-ae9f4a7db5ba",
+  "version": "2.0",
+  "name": "Exercise 3",
+  "url": "https://www.pitt.edu/",
+  "tests": [{
+    "id": "41cdc7c6-3bae-44ed-bad7-a2fb778f9239",
+    "name": "TEST-2-LOGO-EXISTS",
+    "commands": [{
+      "id": "0cacc4f6-fb7f-4230-a00a-81f926e43086",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.pitt.edu/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eb57ff4c-5929-47d0-a1e7-398e8b077d21",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//img[@alt='University of Pittsburgh']",
+      "targets": [
+        ["css=.field__item > a > img", "css:finder"],
+        ["xpath=//img[@alt='University of Pittsburgh']", "xpath:img"],
+        ["xpath=//div[@id='block-pitt-25-edu-mainsitelogo']/div/div/div/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//a/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "57853242-3ada-4241-8df0-a734427d498a",
+    "name": "TEST-1-TITLE",
+    "commands": [{
+      "id": "c8bdb34b-8d38-4821-8ec1-b49046449aee",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.pitt.edu/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7f3ad41b-cd57-4074-88a7-b526b70e930c",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Home | University of Pittsburgh",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "5e1e6b0f-1d01-43c6-ba7e-cda782562f4b",
+    "name": "TEST-3-LOGO-IMAGE",
+    "commands": [{
+      "id": "46e1dd41-be7c-48e1-8910-81c9a069b78f",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.pitt.edu/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8e932d9c-9e3d-4a05-a6b9-4b9001edc734",
+      "comment": "",
+      "command": "storeAttribute",
+      "target": "xpath=//img[@alt='University of Pittsburgh']@src",
+      "targets": [],
+      "value": "src"
+    }, {
+      "id": "b566b368-7a06-4c1d-a20b-f7f2bb55d597",
+      "comment": "",
+      "command": "assert",
+      "target": "src",
+      "targets": [],
+      "value": "/sites/default/files/assets/pitt_shield_white-home.png"
+    }]
+  }, {
+    "id": "2930e807-012a-4409-a7b1-6fd8bf268d5c",
+    "name": "TEST-4-SCHOOLS-SCI",
+    "commands": [{
+      "id": "0ae7d936-67a2-4e90-82e7-a77127ce6342",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.pitt.edu/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "98e0fd92-8349-4688-93cf-4e4e49a02e4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav_content_trigger",
+      "targets": [
+        ["css=.nav_content_trigger", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//header[@id='header']/div/div/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Open Navigation')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "376bae43-5134-4b85-9d81-1580df0386af",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "id=block-pitt-25-edu-collegesschools-2",
+      "targets": [
+        ["id=block-pitt-25-edu-collegesschools-2", "id"],
+        ["css=#block-pitt-25-edu-collegesschools-2", "css:finder"],
+        ["xpath=//nav[@id='block-pitt-25-edu-collegesschools-2']", "xpath:attributes"],
+        ["xpath=//div[@id='block-drawernavrightcolumn-pitt-25-edu']/div/nav", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/nav", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "87868113-2f7b-4a18-b788-107c0a250526",
+      "comment": "",
+      "command": "assertText",
+      "target": "xpath=//nav[@id='block-pitt-25-edu-collegesschools-2']/ul/li[3]",
+      "targets": [
+        ["css=#block-pitt-25-edu-collegesschools-2 .menu-item:nth-child(3)", "css:finder"],
+        ["xpath=//nav[@id='block-pitt-25-edu-collegesschools-2']/ul/li[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/nav/ul/li[3]", "xpath:position"]
+      ],
+      "value": "Computing & Information"
+    }]
+  }, {
+    "id": "ef645354-a22b-44ea-8565-5e5a002bf54b",
+    "name": "TEST-5-SCHOOLS-COUNT",
+    "commands": [{
+      "id": "a5a5b649-de31-4e32-baa9-01d2a005fd24",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.pitt.edu/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b61e553e-bb6a-407e-8ab9-98722110a873",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav_content_trigger",
+      "targets": [
+        ["css=.nav_content_trigger", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//header[@id='header']/div/div/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Open Navigation')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f85fd5c-a800-478b-9de4-a6aed40ae536",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "id=block-pitt-25-edu-collegesschools-2",
+      "targets": [
+        ["id=block-pitt-25-edu-collegesschools-2", "id"],
+        ["css=#block-pitt-25-edu-collegesschools-2", "css:finder"],
+        ["xpath=//nav[@id='block-pitt-25-edu-collegesschools-2']", "xpath:attributes"],
+        ["xpath=//div[@id='block-drawernavrightcolumn-pitt-25-edu']/div/nav", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/nav", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "c2e47103-98e6-4e85-a7fa-3a886792de5f",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//nav[@id='block-pitt-25-edu-collegesschools-2']/ul/li[16]",
+      "targets": [
+        ["css=#block-pitt-25-edu-collegesschools-2 .menu-item:nth-child(16)", "css:finder"],
+        ["xpath=//nav[@id='block-pitt-25-edu-collegesschools-2']/ul/li[16]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/nav/ul/li[16]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "30ca0950-52fb-4185-b52a-c17761549b72",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "xpath=//nav[@id='block-pitt-25-edu-collegesschools-2']/ul/li[17]",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a05df5f8-47c7-4be1-a5f7-ff014248883c",
+    "name": "TEST-6-SEARCH-CSC",
+    "commands": [{
+      "id": "b7cfa384-7743-4e1f-9ea5-457a0f7b4557",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.pitt.edu/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "483ad8ba-359d-4a39-8e46-30dde824b059",
+      "comment": "",
+      "command": "click",
+      "target": "css=.navbar-search",
+      "targets": [
+        ["css=.navbar-search", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//header[@id='header']/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf2f87ff-aae3-41fb-9cbe-55e846431410",
+      "comment": "",
+      "command": "waitForElementEditable",
+      "target": "id=edit-keys--2",
+      "targets": [
+        ["id=edit-keys--2", "id"],
+        ["name=keys", "name"],
+        ["css=#edit-keys--2", "css:finder"],
+        ["xpath=//input[@id='edit-keys--2']", "xpath:attributes"],
+        ["xpath=//form[@id='search-block-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "a07b9efa-af1a-4cf8-8157-e7c2c73d9cbe",
+      "comment": "",
+      "command": "click",
+      "target": "id=edit-keys--2",
+      "targets": [
+        ["id=edit-keys--2", "id"],
+        ["name=keys", "name"],
+        ["css=#edit-keys--2", "css:finder"],
+        ["xpath=//input[@id='edit-keys--2']", "xpath:attributes"],
+        ["xpath=//form[@id='search-block-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4080ecf9-f7d0-4bfc-97c8-112cd1c58edb",
+      "comment": "",
+      "command": "type",
+      "target": "id=edit-keys--2",
+      "targets": [
+        ["id=edit-keys--2", "id"],
+        ["name=keys", "name"],
+        ["css=#edit-keys--2", "css:finder"],
+        ["xpath=//input[@id='edit-keys--2']", "xpath:attributes"],
+        ["xpath=//form[@id='search-block-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "computer science club"
+    }, {
+      "id": "a817b69f-3540-424b-b2ca-1289b6ae4fcc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button",
+      "targets": [
+        ["css=.button", "css:finder"],
+        ["xpath=//input[@value='Search']", "xpath:attributes"],
+        ["xpath=//div[@id='edit-actions']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a28ce2b-ed74-4ce4-8d8d-5c6887b5c161",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.gsc-expansionArea",
+      "targets": [
+        ["css=.gsc-expansionArea", "css:finder"],
+        ["xpath=//div[@id='___gcse_0']/div/div/div/div[5]/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "13b94a80-6466-4c6a-a70f-0478fb9aee34",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "linkText=Student Organization Spotlight: Computer Science Club (CSC)",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "5795d25a-3354-42d2-8b8d-6c893933c5f2",
+    "name": "PittEdu",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["57853242-3ada-4241-8df0-a734427d498a", "41cdc7c6-3bae-44ed-bad7-a2fb778f9239", "5e1e6b0f-1d01-43c6-ba7e-cda782562f4b", "2930e807-012a-4409-a7b1-6fd8bf268d5c", "ef645354-a22b-44ea-8565-5e5a002bf54b", "a05df5f8-47c7-4be1-a5f7-ff014248883c"]
+  }],
+  "urls": ["https://www.pitt.edu/"],
+  "plugins": []
+}

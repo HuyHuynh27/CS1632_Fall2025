@@ -20,36 +20,40 @@ public class RoomImpl implements Room {
 	 * @param southDoor Description of south door (null if there is no south door)
 	 */
 	public RoomImpl(String furnishing, String adjective, Item item, String northDoor, String southDoor) {
-		// TODO: Fill in
+		this.furnishing = furnishing;
+		this.adjective = adjective;
+		this.item = item;
+		this.northDoor = northDoor;
+		this.southDoor = southDoor;
 	}
 	
 	public String getFurnishing() {
 		// TODO: Fill in
-		return "";
+		return furnishing;
 	}
 
 	public String getAdjective() {
 		// TODO: Fill in
-		return "";
+		return adjective;
 	}
 
 	public Item getItem() {
 		// TODO: Fill in
-		return Item.NONE;
+		return item;
 	}
 
 	public String getNorthDoor() {
 		// TODO: Fill in
-		return "";
+		return northDoor;
 	}
 
 	public String getSouthDoor() {
 		// TODO: Fill in
-		return "";
+		return southDoor;
 	}
 	
 	public String getDescription() {
 		// TODO: Fill in
-		return "";
+		return ;
 	}
 }

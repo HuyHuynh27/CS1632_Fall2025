@@ -3,6 +3,7 @@ package edu.pitt.cs;
 class PlayerImpl implements Player {
 
 	// TODO: Add more member variables and methods as needed.
+	private 
 	
 	static final String newline = System.lineSeparator(); // Platform independent newline ("\n" or "\r\n")
 

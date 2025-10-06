@@ -6,6 +6,10 @@ So that I can be not accused of cat abduction.
 
 Background:
 # TODO: Include your test fixture here
+Given a rent-a-cat facility
+Given a cat with ID 1 and name "Jennyanydots"
+Given a cat with ID 2 and name "Old Deuteronomy"
+Given a cat with ID 3 and name "Mistoffelees"
 
 Rule: When a cat is requested for return and the cat has not been rented,
 the return is unsuccessful and the list of available cats remains the same.
@@ -18,15 +22,47 @@ Then the listing is: "ID 1. Jennyanydots\nID 2. Old Deuteronomy\nID 3. Mistoffel
 
 Scenario: Rent a cat and attempt to return the same cat twice
 # TODO: complete this scenario
+When I rent cat number 1
+And the rent is successful
+When I return cat number 1
+Then the return is successful
+When I return cat number 1
+Then the return is unsuccessful
+When I list the cats
+Then the listing is: "ID 1. Jennyanydots\nID 2. Old Deuteronomy\nID 3. Mistoffelees\n"
 
 Rule: When a cat is requested for return and the cat has been rented,
 the return is successful and the cat is removed from the list of available cats.
 
 Scenario: Rent the first cat and then return the first cat
 # TODO: complete this scenario
+When I rent cat number 1
+And the rent is successful
+When I list the cats
+Then the listing is: "ID 2. Old Deuteronomy\nID 3. Mistoffelees\n"
+When I return cat number 1
+And the return is successful
+When I list the cats
+Then the listing is: "ID 1. Jennyanydots\nID 2. Old Deuteronomy\nID 3. Mistoffelees\n"
 
 Scenario: Rent the last cat and then return the last cat
 # TODO: complete this scenario
+When I rent cat number 3
+And the rent is successful
+When I list the cats
+Then the listing is: "ID 1. Jennyanydots\nID 2. Old Deuteronomy\n"
+When I return cat number 3
+And the return is successful
+When I list the cats
+Then the listing is: "ID 1. Jennyanydots\nID 2. Old Deuteronomy\nID 3. Mistoffelees\n"
 
 Scenario: Rent a middling cat and then return that cat
 # TODO: complete this scenario
+When I rent cat number 2
+And the rent is successful
+When I list the cats
+Then the listing is: "ID 1. Jennyanydots\nID 3. Mistoffelees\n"
+When I return cat number 2
+And the return is successful
+When I list the cats
+Then the listing is: "ID 1. Jennyanydots\nID 2. Old Deuteronomy\nID 3. Mistoffelees\n"
