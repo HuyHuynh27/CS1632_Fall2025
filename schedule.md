@@ -83,8 +83,9 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
     3. Click on the "Start Assignment" button.  There will be a count down timer on the top right once you start.
     4. Finish and submit the exam within 75 minutes.  You can submit multiple times.
   * Optionally, you can try the "Sample GradeScope Exam (For Practice)" to get used to the mechanics.
-  * Exam is open book (Lecture slides, notes, textbook, exercises and deliverables, use of Java Development Kit or VSCode are permitted).
-  * Exam is individual work (use of generative AI is banned).
+  * Exam is open book (Lecture slides, notes, textbook, exercises and deliverables).  All materials have to be on paper.
+  * No internet access.  No generative AI.
+  * You should have only the GradeScope on the screen at all times.
 
 * Class 2
   * Lecture: Performance Testing (READING: AFIST, Chapter 19)
@@ -162,8 +163,14 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 
 ## WEEK 15 (Week of 1 DEC)
 
-* Industry Guest Lectures (TBD)
- 
+* December 1, 9:30 AM @ IS 405: Broadcom lecture
+  
+* December 1, 3:00 PM @ SENSQ 6110: Wolfe lecture
+
+* December 3, 9:30 AM @ IS 405: American Eagle Lecture
+
+* December 3, 3:00 PM @ SENSQ 6110: CGI lecture
+
 ## WEEK 16 (Week of 8 DEC)
 
 * Midterm 2 on Final Exam Date (TBD)

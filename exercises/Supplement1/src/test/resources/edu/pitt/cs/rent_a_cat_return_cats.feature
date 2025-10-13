@@ -32,7 +32,7 @@ When I list the cats
 Then the listing is: "ID 1. Jennyanydots\nID 2. Old Deuteronomy\nID 3. Mistoffelees\n"
 
 Rule: When a cat is requested for return and the cat has been rented,
-the return is successful and the cat is removed from the list of available cats.
+the return is successful and the cat is added to the list of available cats.
 
 Scenario: Rent the first cat and then return the first cat
 # TODO: complete this scenario
