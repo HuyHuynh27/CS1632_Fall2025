@@ -26,12 +26,13 @@ public class Monkey {
 	 * @return id of monkey
 	 */
 
-	public int getId() throws NoIdException {
-		if (id < 0) {
-			throw new NoIdException();
-		} else {
-			return id;
+	public int getId() throws NoIdException 
+	{
+		if (id < 0) 
+		{
+			id = generateId(thisMonkeyNum);
 		}
+		return id;
 	}
 
 	/**
@@ -110,7 +111,7 @@ public class Monkey {
 	public Monkey() {
 		thisMonkeyNum = monkeyNum;
 		monkeyNum++;
-		id = generateId(thisMonkeyNum);
+		//id = generateId(thisMonkeyNum); (We dont generate an ID for the monkeys that don't need it)
 	}
 
 }

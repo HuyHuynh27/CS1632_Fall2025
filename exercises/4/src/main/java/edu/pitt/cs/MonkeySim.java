@@ -55,24 +55,15 @@ public class MonkeySim {
 	 * @return Monkey first monkey in list
 	 */
 
-	public Monkey getFirstMonkey(List<Monkey> ml) {
-		int x = ml.size() - 1;
-		int f = x * 33;
-		int r = 17;
-		int q = f;
-		for (int j = x; j >= 0; j--) {
-			if (ml.get(j).getMonkeyNum() != 1) {
-				for (int k = 0; k < 50000; k++) {
-					q += Math.atan(j) - Math.acos(x) + Math.asin(q);
-				}
-			} else if (ml.get(j).getMonkeyNum() == 1) {
-				if (q == 0) {
-					r = 4;
-				}
-				return ml.get(j);
+	public Monkey getFirstMonkey(List<Monkey> ml) 
+	{
+		for(Monkey monk : ml)
+		{
+			if(monk.getMonkeyNum() == 1)
+			{
+				return monk;
 			}
 		}
-
 		return null;
 	}
 
@@ -85,18 +76,11 @@ public class MonkeySim {
 	 * @return String string version of round
 	 */
 
-	public String stringifyResults(int c, Monkey m, Monkey m2) throws NoIdException {
-		String toReturn = new String("");
-		for (int j = 0; j < HEADER; j++) {
-			toReturn += "@";
-		}
-		toReturn += new String("//Round ");
-		toReturn += new String("" + c);
-		toReturn += new String(": Threw banana from Monkey (#");
-		toReturn += new String(m.getMonkeyNum() + " / ID " + m.getId());
-		toReturn += new String(") to Monkey (#");
-		toReturn += new String(m2.getMonkeyNum() + " / ID " + m2.getId() + ")");
-		return toReturn.substring(HEADER);
+	public String stringifyResults(int c, Monkey m, Monkey m2) throws NoIdException 
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append("//Round ").append(c).append(": Threw banana from Monkey (#").append(m.getMonkeyNum()).append(" / ID ").append(m.getId()).append(") to Monkey (#").append(m2.getMonkeyNum()).append(" / ID ").append(m2.getId()).append(")");
+		return sb.toString();
 	}
 
 	/**
@@ -106,22 +90,16 @@ public class MonkeySim {
 	 * @return int number of monkey w/ banana
 	 */
 
-	public int monkeyWithBanana(List<Monkey> ml) {
-		for (int j = 0; j < ml.size(); j++) {
-			Monkey m = ml.get(j);
-			if (m.hasBanana()) {
-				int k = 0;
-				int bar = 10000;
-				while (k++ < (bar * bar)) {
-					if (m.getMonkeyNum() == k) {
-						bar -= Math.round(Math.sqrt(bar));
-					}
-				}
-				return m.getMonkeyNum();
+	public int monkeyWithBanana(List<Monkey> ml) 
+	{
+		for(Monkey monk : ml)
+		{
+			if(monk.hasBanana())
+			{
+				return monk.getMonkeyNum();
 			}
 		}
 		return -1;
-
 	}
 
 	public int addMoreMonkeys(int n, List<Monkey> ml) {
@@ -172,9 +150,11 @@ public class MonkeySim {
 	 * monkey number.
 	 * 
 	 * @param args - Array of arguments from cmd line
-	 */
-
-	public static void main(String[] args) throws InfiniteLoopException, NoIdException {
+		 * @throws InterruptedException 
+		 */
+	 
+		public static void main(String[] args) throws InfiniteLoopException, NoIdException, InterruptedException {
+		Thread.sleep(60000);
 		int s = getStartingMonkeyNum(args);
 		
 		Monkey tmpMonkey;
