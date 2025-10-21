@@ -10,9 +10,19 @@ public class IntegerOps {
 	 * @param y Second integer
 	 * @return Sum of x and y, or 0 if integer overflow
 	 */
-	public static int add(int x, int y) {
-		// TODO: Fix bug!
-		return x + y;
+	public static int add(int x, int y) 
+	{
+		int result = x + y;
+		if(x > 0 && y > 0 && result < 0)
+		{
+			return 0;
+		}
+
+		if(x > 0 && y < 0 && result > 0)
+		{
+			return 0;
+		}
+		return result;
 	}
 
 	/**
@@ -24,8 +34,18 @@ public class IntegerOps {
 	 * @param y Second integer
 	 * @return Difference between x and y, or 0 if integer overflow
 	 */
-	public static int subtract(int x, int y) {
-		// TODO: Fix bug!
-		return x - y;
+	public static int subtract(int x, int y) 
+	{
+		int result = x - y;
+		if(x > 0 && y < 0 && result < 0)
+		{
+			return 0;
+		}
+
+		if(x < 0 && y > 0 && result > 0)
+        {
+            return 0;
+        }
+		return result;
 	}
 }

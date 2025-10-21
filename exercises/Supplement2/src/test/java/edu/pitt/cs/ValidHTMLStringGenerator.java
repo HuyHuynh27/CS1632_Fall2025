@@ -10,8 +10,10 @@ import java.util.stream.Stream;
 import com.pholser.junit.quickcheck.generator.*;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
 
-public class ValidHTMLStringGenerator extends Generator<String> {
-	public ValidHTMLStringGenerator() {
+public class ValidHTMLStringGenerator extends Generator<String> 
+{
+	public ValidHTMLStringGenerator() 
+	{
 		super(String.class);
 	}
 
@@ -101,9 +103,25 @@ public class ValidHTMLStringGenerator extends Generator<String> {
 	 * @return List of shrunk smaller strings
 	 */
 	@Override
-	public List<String> doShrink(SourceOfRandomness random, String larger) {
-		// TODO: Fill in looking at the Javadoc comments above and ABCStringGenerator
-		return Collections.emptyList();
-		
+	public List<String> doShrink(SourceOfRandomness random, String larger) 
+	{
+		if (larger.length() == 0)
+			return Collections.emptyList();
+		List<String> list = new ArrayList<>();
+
+		int bIndex = larger.indexOf("<b></b>");
+		if (bIndex != 1)
+		{
+			String smallString = larger.substring(0, bIndex) + larger.substring(bIndex + 7);
+			list.add(smallString);
+		}
+
+		int iIndex = larger.indexOf("<i></i>");
+		if (iIndex != 1)
+		{
+			String smallString = larger.substring(0, iIndex) + larger.substring(iIndex + 7);
+			list.add(smallString);
+		}
+		return list;
 	}
 }

@@ -9,8 +9,10 @@ import java.util.stream.Stream;
 import com.pholser.junit.quickcheck.generator.*;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
 
-public class ABCStringGenerator extends Generator<String> {
-	public ABCStringGenerator() {
+public class ABCStringGenerator extends Generator<String> 
+{
+	public ABCStringGenerator() 
+	{
 		super(String.class);
 	}
 
