@@ -110,14 +110,14 @@ public class ValidHTMLStringGenerator extends Generator<String>
 		List<String> list = new ArrayList<>();
 
 		int bIndex = larger.indexOf("<b></b>");
-		if (bIndex != 1)
+		if (bIndex != -1)
 		{
 			String smallString = larger.substring(0, bIndex) + larger.substring(bIndex + 7);
 			list.add(smallString);
 		}
 
 		int iIndex = larger.indexOf("<i></i>");
-		if (iIndex != 1)
+		if (iIndex != -1)
 		{
 			String smallString = larger.substring(0, iIndex) + larger.substring(iIndex + 7);
 			list.add(smallString);

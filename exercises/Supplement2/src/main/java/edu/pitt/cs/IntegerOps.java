@@ -18,7 +18,7 @@ public class IntegerOps {
 			return 0;
 		}
 
-		if(x > 0 && y < 0 && result > 0)
+		if(x < 0 && y < 0 && result > 0)
 		{
 			return 0;
 		}
@@ -42,7 +42,7 @@ public class IntegerOps {
 			return 0;
 		}
 
-		if(x < 0 && y > 0 && result > 0)
+		if(x < 0 && y > 0 && result >= 0)
         {
             return 0;
         }
