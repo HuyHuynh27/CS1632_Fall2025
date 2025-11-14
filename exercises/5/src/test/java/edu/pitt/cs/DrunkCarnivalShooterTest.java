@@ -6,6 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import gov.nasa.jpf.util.test.TestJPF;
+import gov.nasa.jpf.vm.Verify;
 
 /**
  * Code by @author Wonsun Ahn
@@ -35,6 +36,8 @@ public class DrunkCarnivalShooterTest extends TestJPF {
 		 * Verify API, look at:
 		 * https://github.com/javapathfinder/jpf-core/wiki/Verify-API-of-JPF
 		 */
+
+		targetChoice = Verify.getInt(0,3);
 		
 		// Create the game
 		shooter = DrunkCarnivalShooter.createInstance(InstanceType.IMPL);
@@ -100,8 +103,41 @@ public class DrunkCarnivalShooterTest extends TestJPF {
 
 		// A failstring useful to pass to assertions to get a more descriptive error.
 		String failString = "Failure in " + shooter.getRoundString() + " (targetChoice=" + targetChoice + "):";
-		System.out.println(failString);
+		//System.out.println(failString);
 		
 		// TODO: Implement
+		int standingBeforeShoot = 0;
+		for(int i = 0; i < 4; i++)
+		{
+			if(shooter.isTargetStanding(i))
+			{
+				standingBeforeShoot++;
+			}
+		}
+
+		boolean hit = shooter.shoot(targetChoice, builder);
+
+		int standingAfterShoot = 0;
+		for(int i = 0; i < 4; i++)
+		{
+			if(shooter.isTargetStanding(i))
+			{
+				standingAfterShoot++;
+			}
+		}
+
+		assertEquals(standingAfterShoot, shooter.getRemainingTargetNum());
+		if(hit)
+		{
+			assertEquals(standingBeforeShoot - 1, standingAfterShoot);
+
+		}
+		else
+		{
+			assertEquals(standingBeforeShoot, standingAfterShoot);
+		}
+		assertTrue(shooter.getRemainingTargetNum() >= 0);
+		assertTrue(shooter.getRemainingTargetNum() <= 4);
+		assertTrue(builder.length() > 0);
 	}
 }
